@@ -12,7 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
 
-    // handling specific exception
+    // for specific exception
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> resourceNotFoundHandling(ResourceNotFoundException exception, WebRequest request){
         ErrorDetails errorDetails =
@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
-    // handling global exception
+    // for global exception
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> globalExceptionHandling(Exception exception, WebRequest request){

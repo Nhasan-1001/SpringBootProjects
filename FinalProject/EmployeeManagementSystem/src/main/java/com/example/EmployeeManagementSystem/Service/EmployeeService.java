@@ -15,7 +15,6 @@ public class EmployeeService implements EmployeeInterface {
    @Override
     public Employee getEmployee(String emp_email){
        Employee employee= employeeRepo.findAllByEmail(emp_email);
-//       employee.setEmp_password("*****Confidential*****");
        return employee;
    }
 

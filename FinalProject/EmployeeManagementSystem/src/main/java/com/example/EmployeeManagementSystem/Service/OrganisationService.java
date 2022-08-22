@@ -21,7 +21,7 @@ public class OrganisationService implements OrganisationInterface {
     @Autowired
     OrganisationRepo organisationRepo;
 
-    //
+    //Password matching logic
     @Override
     public boolean addEmployee(Employee employee) {
         List<Employee>emp=employeeRepo.findAll();

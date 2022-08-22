@@ -22,7 +22,7 @@ public class Employee implements UserDetails {
     private int id;
 
     @Column
-    @NotEmpty
+    @NotEmpty(message = "Employee name should not be empty")
     @Pattern(message="Give proper name", regexp = "^[a-zA-Z ]+$")
     private String emp_name;
     @Column(name="emp_email")
@@ -30,11 +30,11 @@ public class Employee implements UserDetails {
     private String email;
 
     @Column
-    @NotEmpty(message = "Please enter 10 digit phone number")
+    @NotEmpty(message = "Phone number should not be empty")
     @Pattern(message="Phone number is not valid", regexp = "^[0-9]{10}$")
     private String emp_phone_no;
     @Column
-    @NotEmpty(message = "Please enter role")
+    @NotEmpty(message = "Role should not be empty")
     private String emp_role;
 
     @Column

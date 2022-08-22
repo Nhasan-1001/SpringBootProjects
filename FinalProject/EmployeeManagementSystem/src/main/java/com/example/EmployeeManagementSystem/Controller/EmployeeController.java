@@ -50,7 +50,7 @@ public class EmployeeController {
         return new ResponseEntity<>("Employee details deletion successful!",HttpStatus.OK);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping
     public ResponseEntity<List<Employee>>getAllEmployee() {
         try {
             return new ResponseEntity<>(organisationInterface.getAll(), HttpStatus.OK);
@@ -59,7 +59,7 @@ public class EmployeeController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @PostMapping(produces = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping
     public ResponseEntity<String>addEmployee(@RequestBody @Valid Employee employee)
     {
         if(! employee.getEmp_salary().contains("-")) {

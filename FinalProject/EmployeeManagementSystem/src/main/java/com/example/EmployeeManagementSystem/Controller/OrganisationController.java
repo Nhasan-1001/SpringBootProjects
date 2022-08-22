@@ -48,14 +48,14 @@ public class OrganisationController {
             for(Assets assets:ast){
                 assetsRepo.deleteById(assets.getId());
             }
-            return new ResponseEntity<>("Deleted",HttpStatus.OK);
+            return new ResponseEntity<>("Organisation deleted successfully!",HttpStatus.OK);
         }
         catch (Exception e)
         {
             return new ResponseEntity<>("Details not found!",HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping
     public ResponseEntity<List<Organisation>>getAll()
     {
         try {
@@ -76,7 +76,7 @@ public class OrganisationController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>("Details not found",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Details not found!",HttpStatus.NOT_FOUND);
         }
     }
 }
