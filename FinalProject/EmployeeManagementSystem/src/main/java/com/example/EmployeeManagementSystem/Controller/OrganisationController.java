@@ -37,7 +37,6 @@ public class OrganisationController {
     public ResponseEntity<String>deleteOrganisation(@PathVariable int org_id)
     {
         try {
-
             organisationService.deleteOrganisation(org_id);
             List<Employee> emp=employeeRepo.deleteData(org_id);
             for(Employee e:emp)

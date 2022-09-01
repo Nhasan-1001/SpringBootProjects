@@ -21,7 +21,6 @@ public class OrganisationService implements OrganisationInterface {
     @Autowired
     OrganisationRepo organisationRepo;
 
-    //Password matching logic
     @Override
     public boolean addEmployee(Employee employee) {
         boolean found = false;
@@ -43,7 +42,6 @@ public class OrganisationService implements OrganisationInterface {
                 break;
             }
         }
-
         if (isFound)
         {
             return false;

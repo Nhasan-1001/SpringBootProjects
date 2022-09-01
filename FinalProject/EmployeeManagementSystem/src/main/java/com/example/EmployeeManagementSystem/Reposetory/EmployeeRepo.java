@@ -15,4 +15,5 @@ public interface EmployeeRepo extends JpaRepository <Employee,Integer> {
     Employee findByEmail(String emp_email);
     @Query(nativeQuery = true,value = "SELECT * FROM `employee_table` WHERE org_id=:emp_id")
     List<Employee>  deleteData(@Param(value = "emp_id") int id);
+
 }
