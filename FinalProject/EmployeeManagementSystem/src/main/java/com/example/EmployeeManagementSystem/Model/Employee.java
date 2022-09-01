@@ -26,6 +26,7 @@ public class Employee implements UserDetails {
     @Pattern(message="Give proper name", regexp = "^[a-zA-Z ]+$")
     private String emp_name;
     @Column(name="emp_email")
+    @NotEmpty(message = "email should not be empty")
     @Email(message = "Email is not valid", regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
     private String email;
 
@@ -38,15 +39,15 @@ public class Employee implements UserDetails {
     private String emp_role;
 
     @Column
-    @NotEmpty(message = "Please enter positive value")
+    @NotEmpty(message = "Salary should not be empty")
     private String emp_salary;
 
     @Column
-    @NotEmpty(message = "Give a password")
+    @NotEmpty(message = "Password must required")
     private String emp_password;
 
     @Column
-    @NotNull
+    @NotNull(message = "Give proper organization id, which must should be existing ")
     private int org_id;
 
     @Override

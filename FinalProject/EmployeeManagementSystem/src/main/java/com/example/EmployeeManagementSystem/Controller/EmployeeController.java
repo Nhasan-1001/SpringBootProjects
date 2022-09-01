@@ -36,7 +36,6 @@ public class EmployeeController {
             {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
-
         }
         catch (NullPointerException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -63,10 +62,14 @@ public class EmployeeController {
     public ResponseEntity<String>addEmployee(@RequestBody @Valid Employee employee)
     {
         if(! employee.getEmp_salary().contains("-")) {
-            if (organisationInterface.addEmployee(employee))
-                return new ResponseEntity<>("Employee details creation successful!", HttpStatus.CREATED);
+            if (employee.getOrg_id()!= 0) {
+                if (organisationInterface.addEmployee(employee))
+                    return new ResponseEntity<>("Employee details creation successful!", HttpStatus.CREATED);
+                else
+                    return new ResponseEntity<>("Employee is already exist!",HttpStatus.BAD_REQUEST);
+            }
             else
-                return new ResponseEntity<>("Employee is already exist!", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Please enter organisation id", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         else
             return new ResponseEntity<>("Salary should be positive",HttpStatus.BAD_REQUEST);

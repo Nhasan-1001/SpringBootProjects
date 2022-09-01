@@ -24,6 +24,16 @@ public class OrganisationService implements OrganisationInterface {
     //Password matching logic
     @Override
     public boolean addEmployee(Employee employee) {
+        boolean found = false;
+        for(Organisation o : organisationRepo.findAll()){
+            if (o.getId() == employee.getOrg_id()){
+                found = true;
+                break;
+            }
+        }
+        if (! found){
+            throw new NullPointerException("Organisation not exist");
+        }
         List<Employee>emp=employeeRepo.findAll();
         boolean isFound=false;
         for (Employee employee1:emp)
@@ -64,6 +74,16 @@ public class OrganisationService implements OrganisationInterface {
     @Override
     public void updateEmployee(Employee employee)
     {
+        boolean found = false;
+        for(Organisation o : organisationRepo.findAll()){
+            if (o.getId() == employee.getOrg_id()){
+                found = true;
+                break;
+            }
+        }
+        if (! found){
+            throw new NullPointerException("Organisation not exist");
+        }
         Employee e1 = employeeRepo.findById(employee.getId()).orElseThrow();
         e1.setEmp_role(employee.getEmp_role());
         e1.setEmp_name(employee.getEmp_name());

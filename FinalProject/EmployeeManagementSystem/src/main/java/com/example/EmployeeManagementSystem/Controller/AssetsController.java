@@ -47,7 +47,7 @@ public class AssetsController {
 
 
         catch (NullPointerException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Id not not found",HttpStatus.NOT_FOUND);
         }
     }
 
