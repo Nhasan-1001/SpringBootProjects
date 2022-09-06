@@ -1,5 +1,4 @@
 package com.example.EmployeeManagementSystem.Service;
-
 import com.example.EmployeeManagementSystem.Model.Employee;
 import com.example.EmployeeManagementSystem.Reposetory.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ public class EmployeeService implements EmployeeInterface {
     EmployeeRepo employeeRepo;
    @Autowired
     PasswordEncoder passwordEncoder;
+
    @Override
     public Employee getEmployee(String emp_email){
        Employee employee= employeeRepo.findAllByEmail(emp_email);

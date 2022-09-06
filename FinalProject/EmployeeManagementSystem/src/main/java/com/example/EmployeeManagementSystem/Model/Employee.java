@@ -3,12 +3,8 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -44,6 +40,7 @@ public class Employee implements UserDetails {
 
     @Column
     @NotEmpty(message = "Password must required")
+    @Size(min = 8,message = "Password length should be 8 characters")
     private String emp_password;
 
     @Column

@@ -1,6 +1,5 @@
 package com.example.EmployeeManagementSystem.Model;
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;

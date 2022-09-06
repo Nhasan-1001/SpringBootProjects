@@ -1,12 +1,10 @@
 package com.example.EmployeeManagementSystem.Service;
-
 import com.example.EmployeeManagementSystem.Model.Assets;
 import com.example.EmployeeManagementSystem.Model.Organisation;
 import com.example.EmployeeManagementSystem.Reposetory.AssetsRepo;
 import com.example.EmployeeManagementSystem.Reposetory.OrganisationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -40,7 +38,6 @@ public class AssetsService implements AssetsInterface {
         assetsRepo.deleteById(id);
     }
 
-
     @Override
     public void updateAssets(Assets assets) {
         boolean found = false;
@@ -59,6 +56,5 @@ public class AssetsService implements AssetsInterface {
         assets1.setAssets_value(assets.getAssets_value());
         assets1.setOrgid(assets1.getOrgid());
         assetsRepo.save(assets1);
-
     }
 }

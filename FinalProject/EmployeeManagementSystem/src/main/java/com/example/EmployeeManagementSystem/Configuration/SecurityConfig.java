@@ -1,5 +1,4 @@
 package com.example.EmployeeManagementSystem.Configuration;
-
 import com.example.EmployeeManagementSystem.Security.EmployeeSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @Configuration
 @EnableWebSecurity
@@ -37,12 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT,"/api/assets/**").hasAnyAuthority(ADMIN,MANAGER)
                 .antMatchers(HttpMethod.DELETE,"/api/assets/**").hasAnyAuthority(ADMIN)
                 .antMatchers(HttpMethod.GET,"/api/assets/**").hasAnyAuthority(ADMIN,MANAGER,EMPLOYEE)
-
                 .antMatchers(HttpMethod.POST,"/api/organisation/**").hasAnyAuthority(ADMIN)
                 .antMatchers(HttpMethod.PUT,"/api/organisation/**").hasAnyAuthority(ADMIN)
                 .antMatchers(HttpMethod.DELETE,"/api/organisation/**").hasAnyAuthority(ADMIN)
                 .antMatchers(HttpMethod.GET,"/api/organisation/**").hasAnyAuthority(ADMIN,MANAGER,EMPLOYEE)
-
                 .anyRequest().authenticated()
                 .and().httpBasic();
         http.csrf().disable();

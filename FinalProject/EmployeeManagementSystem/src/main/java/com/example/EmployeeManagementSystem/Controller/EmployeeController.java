@@ -1,5 +1,4 @@
 package com.example.EmployeeManagementSystem.Controller;
-
 import com.example.EmployeeManagementSystem.Model.Employee;
 import com.example.EmployeeManagementSystem.Service.EmployeeInterface;
 import com.example.EmployeeManagementSystem.Service.OrganisationInterface;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,7 +40,6 @@ public class EmployeeController {
         }
     }
 
-
     @DeleteMapping("/{email}")
     public ResponseEntity<String>deleteEmployee(@PathVariable("email")String emp_email){
         employeeInterface.deleteEmployee(emp_email);
@@ -58,6 +55,7 @@ public class EmployeeController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @PostMapping
     public ResponseEntity<String>addEmployee(@RequestBody @Valid Employee employee)
     {
@@ -74,6 +72,7 @@ public class EmployeeController {
         else
             return new ResponseEntity<>("Salary should be positive",HttpStatus.BAD_REQUEST);
     }
+
     @PutMapping
     public ResponseEntity<String>updateEmployee(@RequestBody @Valid Employee employee){
         try {

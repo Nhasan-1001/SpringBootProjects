@@ -1,5 +1,4 @@
 package com.example.EmployeeManagementSystem.Controller;
-
 import com.example.EmployeeManagementSystem.Model.Assets;
 import com.example.EmployeeManagementSystem.Model.Employee;
 import com.example.EmployeeManagementSystem.Model.Organisation;
@@ -8,10 +7,8 @@ import com.example.EmployeeManagementSystem.Reposetory.EmployeeRepo;
 import com.example.EmployeeManagementSystem.Service.OrganisationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -22,7 +19,6 @@ public class OrganisationController {
     OrganisationService organisationService;
     @Autowired
     EmployeeRepo employeeRepo;
-
     @Autowired
     AssetsRepo assetsRepo;
 
@@ -54,6 +50,7 @@ public class OrganisationController {
             return new ResponseEntity<>("Details not found!",HttpStatus.NOT_FOUND);
         }
     }
+
     @GetMapping
     public ResponseEntity<List<Organisation>>getAll()
     {

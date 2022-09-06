@@ -1,7 +1,5 @@
 package com.example.EmployeeManagementSystem.Model;
-
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -33,7 +31,5 @@ public class Assets  {
 
     @Column(name = "org_id")
     private int orgid;
-
-
 }
 
